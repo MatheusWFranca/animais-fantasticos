@@ -1,30 +1,19 @@
-// Retorne no console todas as imagens do site
+const tabMenu = document.querySelectorAll(".js-tabmenu li");
+const tabContent = document.querySelectorAll(".js-tabcontent section");
 
-const img = document.querySelectorAll('img')
+if (tabMenu.length && tabContent.length) {
+  tabContent[0].classList.add("ativo");
 
-console.log(img)
+  function activeTab(index) {
+    tabContent.forEach((section) => {
+      section.classList.remove("ativo");
+    });
+    tabContent[index].classList.add("ativo");
+  }
 
-// Retorne no console apenas as imagens que começaram com a palavra imagem
-
-const imagensAnimais = document.querySelectorAll('img[src^="/img/imagem"]');
-
-console.log(imagensAnimais)
-
-// Selecione todos os links internos (onde o href começa com #)
-
-const linksInternos = document.querySelectorAll('[href^="#"]')
-
-console.log(linksInternos);
-
-
-// Selecione o primeiro h2 dentro de .animais-descricao
-
-const h2select = document.querySelector('.animais-descricao h2')
-
-console.log(h2select)
-
-// Selecione o último p do site
-
-const pselect = document.querySelectorAll('p')
-
-console.log(pselect[pselect.length - 1]);
+  tabMenu.forEach((itemMenu, index) => {
+    itemMenu.addEventListener("click", () => {
+      activeTab(index);
+    });
+  });
+}
