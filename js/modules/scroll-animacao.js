@@ -10,6 +10,8 @@ export default function initAnimacaoScroll() {
         const isSectionVisible = sectionTop - windowMetade < 0;
         if (isSectionVisible) {
           section.classList.add('ativo');
+        } else if(section.classList.contains('ativo')) {
+          section.classList.remove('ativo');
         }
       });
     }
@@ -19,4 +21,3 @@ export default function initAnimacaoScroll() {
     window.addEventListener('scroll', animaScroll);
   }
 }
-
